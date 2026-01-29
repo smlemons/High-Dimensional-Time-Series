@@ -23,6 +23,13 @@ head(air[,1:5])
 
 ```
 
+```{r, echo = TRUE}
+plot(air[,2], type ="l", ylab = "PM 2.5", ylim = c(min(air[-1]), max(air[,-1])), 
+     col = rgb(0,0,0,alpha =0.05))
+apply(air[,3:ncol(air)],2, function(i) points(i, type = "l", col = rgb(0,0,0,alpha =0.05)))
+
+```
+
 # second option to work with:
 - weekly series of electricity price each hour of each day during 678 weeks in eight regions of New England (7 × 24 × 8 = 1344)
 - Note that here k > T
@@ -32,5 +39,12 @@ L: but how are we supposed to know which data belongs to which region
 ```{r}
 elec <- read.csv("PElectricity1344.csv", col.names = paste0("col",1:1344))
 head(elec[,1:5])
+```
+```{r, echo = TRUE}
+plot(elec[,1], type ="l", ylab = "electricity price", ylim = c(min(elec), max(elec)), 
+     col = rgb(0,0,0,alpha =0.05))
+apply(elec[2:ncol(elec)],2, function(i) points(i, type = "l", col = rgb(0,0,0,alpha =0.05)))
+
+
 ```
 
