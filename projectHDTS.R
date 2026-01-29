@@ -13,7 +13,9 @@ air <- read.csv("TaiwanAirBox032017.csv", col.names = c("time", paste0("col",2:5
 head(loc)
 head(air[,1:5])
 
-
+plot(air[,2], type ="l", ylab = "PM 2.5", ylim = c(min(air[-1]), max(air[,-1])), 
+     col = rgb(0,0,0,alpha =0.05))
+apply(air[,3:ncol(air)],2, function(i) points(i, type = "l", col = rgb(0,0,0,alpha =0.05)))
 
 # second option to work with:
 elec <- read.csv("PElectricity1344.csv", col.names = paste0("col",1:1344))
@@ -21,6 +23,11 @@ elec <- read.csv("PElectricity1344.csv", col.names = paste0("col",1:1344))
 # eight regions of New England (7 × 24 × 8 = 1344)
 # Note that here k > T
 
+plot(elec[,1], type ="l", ylab = "electricity price", ylim = c(min(elec), max(elec)), 
+     col = rgb(0,0,0,alpha =0.05))
+apply(elec[2:ncol(elec)],2, function(i) points(i, type = "l", col = rgb(0,0,0,alpha =0.05)))
+
+
 # L: but how are we supposed to know which data belongs to which region
 head(elec[,1:5])
-
+plot(elec)
