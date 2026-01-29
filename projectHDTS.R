@@ -23,11 +23,11 @@ elec <- read.csv("PElectricity1344.csv", col.names = paste0("col",1:1344))
 # eight regions of New England (7 × 24 × 8 = 1344)
 # Note that here k > T
 
+head(elec[,1:5])
+
 plot(elec[,1], type ="l", ylab = "electricity price", ylim = c(min(elec), max(elec)), 
      col = rgb(0,0,0,alpha =0.05))
 apply(elec[2:ncol(elec)],2, function(i) points(i, type = "l", col = rgb(0,0,0,alpha =0.05)))
 
 
 # L: but how are we supposed to know which data belongs to which region
-head(elec[,1:5])
-plot(elec)
