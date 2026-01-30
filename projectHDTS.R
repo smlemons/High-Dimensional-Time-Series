@@ -31,3 +31,23 @@ apply(elec[2:ncol(elec)],2, function(i) points(i, type = "l", col = rgb(0,0,0,al
 
 
 # L: but how are we supposed to know which data belongs to which region
+
+
+## STUFF THAT WE COULD DO 
+# VAR LASSO, heatmap coefficients, influenced & influential series (compare FitVarLASSO or project_LASSO)
+# comparison rrr, ols and bigvar lasso (MSE) (compare low rank VAR and comparison)
+# partial correlations (compare graphical lasso for var)
+
+
+## STUFF THAT WOULD ONLY WORK WITH AIR (because we have 2 more variables there)
+# cluster by neighborhood
+
+
+## STUFF THAT DOES NOT WORK AT ALL(because we only have 1 TS?)
+
+# ccm (cross correlation matrix)
+# cor(res), cor.test()
+# Granger causility
+# VARX models (with endogenous and exogenous variables)
+# monte carlo: comparison different rhos of lasso (mean frobenius loss)
+# monte carlo: comparison LASSO2stepTrueSigma, LASSO2stepSigmahat, LSEVAR (mean frobenius loss)
