@@ -299,12 +299,12 @@ t_start <- floor(0.7 * nrow(data))        # <-- align with your old code style (
 t_end   <- nrow(data) -100
 
 pred_big  <- matrix(NA_real_, nrow = t_end - t_start + 1, ncol = k)
-pred_rrr  <- list()
+pred_rrr  <- pred_big
 pred_ols  <- pred_big
 y_true    <- pred_big
 rank_rrr  <- integer(nrow(pred_big))
 
-colnames(pred_big) <- colnames(pred_ols) <- colnames(y_true) <- colnames(data)
+colnames(pred_big) <- colnames(pred_rrr) <- colnames(pred_ols) <- colnames(y_true) <- colnames(data) 
 
 idx <- 1
 for (t in t_start:t_end) {
@@ -318,7 +318,7 @@ for (t in t_start:t_end) {
   
   # Low-rank (global on stacked lags)
   fr <- fit_rrr_forecast1(Ytrain, p = 3)
-  pred_rrr[idx] <- fr$yhat
+  pred_rrr[idx,] <- fr$yhat
   rank_rrr[idx] <- fr$rank
   
   # VAR OLS
