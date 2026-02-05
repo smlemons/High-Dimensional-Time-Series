@@ -376,7 +376,7 @@ T2 <- floor(0.80 * TT)
 Model <- constructModel(
   Y = data, p = p,
   struct = "Basic",
-  gran = c(50, 10),
+  gran = c(300, 10),
   cv = "Rolling",
   T1 = T1, T2 = T2,
   verbose = FALSE,
